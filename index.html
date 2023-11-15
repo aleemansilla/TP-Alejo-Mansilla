@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/assets.css">
+    <title>Trabajo Final 2023</title>
+</head>
+<body>
+    <header>
+        <h1>Control de Aprendizajes Pendientes - PROA</h1>
+    </header>
+
+    <nav>
+        <a href="#">Inicio</a>
+        <a href="#">Registro de Aprendizajes</a>
+        <a href="#">Contacto</a>
+            <form class="barra" action="#" method="get">
+                <label for="buscador">Buscar:</label>
+                <input type="text" id="buscador" name="buscador" placeholder="Ingrese su búsqueda">
+                <input type="submit" value="Buscar">
+            </form>
+    </nav>
+
+    <section>
+        <form action="" id="form">
+            <div class="flex-container">
+                <div class="flex-item">
+                    <label form="">Nombre: </label>
+                    <input type="text" id="nombre">
+                </div>
+                <div class="flex-item">
+                    <label form="">Materia pendiente: </label>
+                    <input type="text" id="edad">
+                </div>
+                <div class="flex-item">
+                    <label form="">Curso: </label>
+                    <input type="text" id="escuela">
+                </div>
+            </div>
+            <br>
+            <input class="agregar" type="button" id="agregar" value="Agregar">
+        </form>
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Materia Pendiente</th>
+                <th>Curso</th>
+            </tr>
+        </thead>
+        <tbody id="tbody">
+
+        </tbody>
+    </table>
+    </section>
+
+    <footer>
+        <div class="footer">
+            <div class="container">
+              <div class="footer-top">
+                <p>+54 9 3564 450656</p>
+                <p>Las Guayanas 533, San Francisco, Cba (7.30 - 18hs)</p>
+                <p><a href="https://www.cba.gov.ar/escuelas-proa/">www.escuelas-proa.gov.ar</a></p>
+              </div>
+            </div>
+         </div>
+    </footer>
+    
+    <script>
+        var button = document.getElementById("agregar");
+        button.addEventListener("click", function () {
+        var nombre = document.getElementById("nombre").value;
+        var edad = document.getElementById("edad").value;
+        var escuela = document.getElementById("escuela").value;
+        var tbody = document.getElementById("tbody");
+
+        // Verifica si los campos están vacíos
+        if (nombre === "" || edad === "" || escuela === "") {
+            alert("Por favor, complete todos los campos.");
+            return; // Sale de la función si hay campos vacíos
+        }
+
+        // Agrega la nueva fila a la tabla
+        var fila = tbody.insertRow();
+        var column1 = fila.insertCell(0);
+        var column2 = fila.insertCell(1);
+        var column3 = fila.insertCell(2);
+
+        column1.innerHTML = nombre;
+        column2.innerHTML = edad;
+        column3.innerHTML = escuela;
+
+        // Restablece el formulario
+        document.getElementById("form").reset();
+        });
+    </script>
+
+</body>
+</html>
